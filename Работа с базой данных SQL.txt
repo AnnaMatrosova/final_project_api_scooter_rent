@@ -1,10 +1,11 @@
 Задание 1
 
 SELECT c.login, 
-       o.track 
+       COUNT (o."inDelivery") 
 FROM "Orders" AS o 
-INNER JOIN "Couriers" AS c ON c.id = "courierId" 
-WHERE "inDelivery" = true;
+INNER JOIN "Couriers" AS c ON o."courierId" = c.id 
+WHERE o."inDelivery" = true 
+GROUP BY c.login;
 
 Задание 2
 
